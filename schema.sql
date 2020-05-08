@@ -17,21 +17,16 @@ CREATE TABLE department (
 CREATE TABLE role (
   id int NOT NULL AUTO_INCREMENT,
   title varchar(30) NOT NULL,
-  salary DECIMAL NULL,
-  department_id INT NULL,
+  salary DECIMAL(9,2) NOT NULL,
+  department_id INT NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE employee (
   id int NOT NULL AUTO_INCREMENT,
-  first_name varchar(30) NOT NULL,
-  last_name varchar(30) NOT NULL,
-  role_id INT NULL,
+  first_name varchar(30),
+  last_name varchar(30),
+  role_id INT,
   manager_id INT NULL,
   PRIMARY KEY (id)
 );
-
--- Insert a set of records.
-INSERT INTO tasks (task) VALUES ('Pick up milk.');
-INSERT INTO tasks (task) VALUES ('Mow the lawn.');
-INSERT INTO tasks (task) VALUES ('Call Shannon back.');
