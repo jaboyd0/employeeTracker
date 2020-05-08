@@ -29,43 +29,53 @@ connection.connect(function(err) {
   }
 
   console.log("connected as id " + connection.threadId);
-  runSearch();
+  runPrompt();
 });
 
-function runSearch() {
+function runPrompt() {
   inquirer
     .prompt({
       name: "action",
       type: "rawlist",
       message: "What would you like to do?",
       choices: [
-        "Find songs by artist",
-        "Find all artists who appear more than once",
-        "Find data within a specific range",
-        "Search for a specific song",
-        "Find artists with a top song and top album in the same year"
+        "View Departments",
+        "View Roles",
+        "View Employees",
+        "Add Departments",
+        "Add Roles",
+        "Add Employees",
+        "Update Employee Roles"
       ]
     })
     .then(function(answer) {
       switch (answer.action) {
-      case "Find songs by artist":
-        artistSearch();
+      case "View Departments":
+        viewDepartments();
         break;
 
-      case "Find all artists who appear more than once":
-        multiSearch();
+      case "View Roles":
+        viewRoles();
         break;
 
-      case "Find data within a specific range":
-        rangeSearch();
+      case "View Employees":
+        viewEmployees();
         break;
 
-      case "Search for a specific song":
-        songSearch();
+      case "Add Departments":
+        addDepartments();
         break;
 
-      case "Find artists with a top song and top album in the same year":
-        songAndAlbumSearch();
+      case "Add Roles":
+        addRoles();
+        break;
+
+      case "Add Employees":
+        addEmployees();
+        break;
+
+      case "Update Employee Roles":
+        updateEmployeeRoles();
         break;
       }
     });

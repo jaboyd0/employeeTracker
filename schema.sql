@@ -16,7 +16,18 @@ CREATE TABLE department (
 
 CREATE TABLE role (
   id int NOT NULL AUTO_INCREMENT,
-  name varchar(30) NOT NULL,
+  title varchar(30) NOT NULL,
+  salary DECIMAL NULL,
+  department_id INT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE employee (
+  id int NOT NULL AUTO_INCREMENT,
+  first_name varchar(30) NOT NULL,
+  last_name varchar(30) NOT NULL,
+  role_id INT NULL,
+  manager_id INT NULL,
   PRIMARY KEY (id)
 );
 
